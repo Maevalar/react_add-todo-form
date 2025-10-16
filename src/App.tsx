@@ -13,7 +13,9 @@ const preparedTodos = todosFromServer.map(todo => ({
 }));
 
 const getNewTodoId = (currentTodos: TodoConfigurated[]) => {
-  const maxId = Math.max(...currentTodos.map(todo => todo.id));
+  const maxId = currentTodos.length
+    ? Math.max(...currentTodos.map(t => t.id))
+    : 0;
 
   return maxId + 1;
 };
